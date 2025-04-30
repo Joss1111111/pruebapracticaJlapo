@@ -1,6 +1,7 @@
 package ec.sasf.prueba.Josue.Lapo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,8 +45,7 @@ public class CursoService {
         return cursoRepository.findAll(); // Usa el método de JpaRepository
     }
 
-    public Curso obtenerCursoPorId(Long cursoId) {
-        return cursoRepository.findById(cursoId)
-            .orElseThrow(() -> new RuntimeException("Curso no encontrado"));
+    public Optional<Curso> obtenerCursoPorId(Long cursoId) {
+        return cursoRepository.findById(cursoId);
     }
 }
